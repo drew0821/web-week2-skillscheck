@@ -86,7 +86,7 @@ let middleNums = numbers.splice(1,3)
 	 firstName: 'Tristan',
 	 state: 'Nevada',
 	 age: 24,
-	 greater: function(){
+	 greeter: function(){
 		 return this.firstName + " and I live in " + this.state
 	 }
  }
@@ -96,14 +96,29 @@ let middleNums = numbers.splice(1,3)
 // Create a function called 'bigOrSmall' that takes in one parameter, 'arr', which will be an array of numbers. Inside of the bigOrSmall function, create a new array called 'answers'. Then, loop over the passed in arr parameter, and check to see if the number in the array is GREATER than 100. If it is, push 'big' as a string to the answers array. If the number is LESS than or EQUAL to 100, push 'small' as a string to the answers array. Return the answers array inside of the function.
 
 function bigOrSmall(arr){
-
+ let answers = []
+	for( i = 0; i < arr.length; i++){
+		if (arr[i] > 100){
+		answers.push('big')
+	} else {
+		answers.push('small')
+	}
+}
+return answers
 }
 
 //////////////////PROBLEM 13////////////////////
 
 // Create a function called 'arrayReverser' that takes in one parameter, 'arr'. Inside of arrayReverser, create an empty array called 'reversed'. Using a for loop, loop over the passed in array IN REVERSE (this means your counter should decrement), and then add each item to the 'reversed' array variable you created. Finally, return the 'reversed' array variable. 
 
-//Code Here
+function arrayReverser(arr){
+	let reversed = []
+	for(i = arr.length -1; i >= 0 ; i--){
+		reversed.push(arr[i])
+	}
+	return reversed
+}
+
 
 //////////////////PROBLEM 14 - 18 Setup////////////////////
 
@@ -138,8 +153,9 @@ let total = myNumbers.reduce(function(acc, curr){
 // Finally, use .forEach to find the index of each item in the array. To begin, create an empty array called 'myNumbersIndex'. Then, use forEach to push each item's index from the myNumbers array into the newly created myNumbersIndex array. 
 
 
-let myNumbersIndex = myNumbers.forEach(function(element, index, array){
- 
+let myNumbersIndex = []
+myNumbers.forEach(function(element, index,array){
+ myNumbersIndex.push(index)	
 })
 
 //////////////////PROBLEM 18////////////////////
@@ -147,8 +163,9 @@ let myNumbersIndex = myNumbers.forEach(function(element, index, array){
 // Did you know that George Foreman has five sons named George? Go ahead and change everyone's name in the notGeorge array to George using .map. Store the resulting array in a variable named 'forTheLoveOfGeorge'.
 const notGeorge = ['Louis', 'Ted', 'Bill', 'Sharon', 'Mark', 'Angela']
 
- let forTheLoveOfGeorge = notGeorge.map( => {
-	 return george
+ let forTheLoveOfGeorge = notGeorge.map( (e, i, a)=> {
+	 
+	return 'George'
  }) 
 
 //////////////////PROBLEM 19////////////////////
@@ -161,12 +178,19 @@ const people = [
 	{ name: 'Samantha', friend: false, awesomeLevel: 4 },
 	{ name: 'Jonathan', friend: true, awesomeLevel: 8 },
 	{ name: 'Josh', friend: true, awesomeLevel: 7 }
-]
+]  
+let enemies = people.filter(function(e, i, a){
+	 return e.friend === false 
+	
+})
 
-// Code Here
+
 
 //////////////////PROBLEM 20////////////////////
 
 // Using the people array above, get a total of the awesomeLevel from all the people, and store that value in a variable named 'totallyAwesome'. Use .reduce().
 
-// Code Here
+
+let totallyAwesome = people.reduce(function(acc, curr){
+	return acc + curr.awesomeLevel
+},0)
