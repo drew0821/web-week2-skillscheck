@@ -14,7 +14,7 @@ const age = 24;
 //////////////////STEP 3////////////////////
 //Create a variable called 'name' and assign it a value of your name as a string.  
 
-const name = "Tristan Shipp";
+let name = "Tristan Shipp";
 
 //////////////////STEP 4////////////////////
 //Create a variable called 'phrase' that is initialized as an empty string. 

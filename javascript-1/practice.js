@@ -144,7 +144,7 @@ let filtered = myNumbers.filter(function(element, index, array){
 
 // Next, use reduce to get the total of the numbers in the array summed together. Store the total in a new variable named 'total'. 
 
-let total = myNumbers.reduce(function(acc, curr){
+const total = myNumbers.reduce(function(acc, curr){
 	return acc + curr;
 })
 
